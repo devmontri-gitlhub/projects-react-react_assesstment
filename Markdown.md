@@ -1,0 +1,49 @@
+[1. สร้างโปรเจคใหม่ + Upload to Github + Deploy Vercel + Send Link URL]
+                                ↓↓↓↓↓↓↓↓↓↓↓↓
+[2. วิเคราะโจทย์ว่าต้องทำอย่างไร และสร้างโครงสร้างตามนั้น เพื่อรอเขียนโค๊ดทีหลัง]
+            [2.1 ต้องการแบ่ง Layout เป็นสองส่วน คือส่วนของ Menu และ ส่วนแสดง Pages]
+               • components
+                    (src/components/MainLayout.jsx) จัดการ Layout หลัก (Navbar + Content)
+                    (src/components/Navbar.jsx) แถบเมนูด้านบน (Home / Owner)
+                    (src/components/UserSection.jsx) แสดงตารางสำหรับ User (Read-only)
+                    (src/components/AdminSection.jsx) ฟอร์ม Add/Edit และตารางที่มีปุ่ม Delete/Edit
+               • context
+                    (src/context/MemberContext.jsx)  ตัวกลางจัดการ State และ API (GET, POST, PUT, DELETE)
+              • pages
+                    (src/pages/Home.jsx)  หน้าหลักสำหรับสลับโหมด Admin/User
+                    (src/pages/Owner.jsx) หน้าแสดงประวัติผู้จัดทำ
+              • App.jsx  ตั้งค่า React Router
+              • main.jsx จุดเริ่มต้นของแอป
+
+
+
+1. ติดตั้งโปรเจคใหม่
+     • สร้างโฟลเดอร์หลัก ที่ต้องการสร้างโปรเจคด้านใน
+     • สร้างโฟลเดร์โปรเจค npm create vite@latest [ชื่อโปรเจค] **ติดตั้ง V.4
+     • เข้าโฟลเดอร์ cd [ชื่อโปรเจค]
+     • ติดตั้ง Mudule พื้นฐานของ React ด้วยคำสั่ง npm install
+     • ตัว Tailwin Css เราไม่ต้องติดตั้งเพิ่ม เพราะเป็น V4 ให้เอาโค๊ดไปใส่ด้วยไฟล์ vite.config.js
+                                import { defineConfig } from 'vite'
+                                import tailwindcss from '@tailwindcss/vite'
+
+                                export default defineConfig({
+                                plugins: [
+                                tailwindcss(),
+                                ],
+                                })
+        และเปิดไฟล์ src/index.css ลบโค๊ดทั้งหมดในไฟล์นี้ และเอาโค๊ดนี้ไปใส่
+        @import "tailwindcss"; เป็นการเรียกใช้งาน  tailwindcss จากนั้นให้ไปทดลองเขียนโค๊ดที่ไฟล์ app.jsx ว่าตัว Tialwind ทำงานปกติรึเปล่า 
+        • อย่าลืมลง Reacut-Router-Dom ให้พิมพ์คำสั่ง npm install react-router-dom
+        • หากปกติให้อัพขึ้น Github และทำ Vercel ต่อเลย จากนั้นนำลิงค์ URL ไปวางส่งให้คุณนิติและคุณกัน
+------------------------------------------------------------------------------------
+  <<<<<<<<<<<V1 My new project is ready for coding. >>>>>>>>>>>>>
+------------------------------------------------------------------------------------    
+
+2. เริ่มทำโครงโปรเจคของเรา + เขียนโค๊ด Font End เริ่มต้นให้มีการทำงานวนหากันได้ หรือจบกระบวนการที่ต้องการได้
+            2.1 สร้างโฟลเดอร์ให้เรียบร้อย เช่น components, context. pages
+            2.2 สร้างไฟล์ที่ต้องการให้ครบ หรืออาจจะใส่โค๊ดให้มันทำงานตามโครงสร้างที่เราต้องการก่อนก็ได้
+                        2.2.1 เริ่มต้นจากองค์ประกอบแบบกว้างไปสู่องค์ประกอบที่เล็ก
+                        (555+ run แล้ว Error ดันลืมลง react-router-dom)
+------------------------------------------------------------------------------------
+  <<<<<<<V2 A new project for website structure is ready. >>>>>>>>>>>
+------------------------------------------------------------------------------------                        

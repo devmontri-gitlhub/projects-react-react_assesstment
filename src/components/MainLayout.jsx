@@ -1,36 +1,28 @@
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : เรียกใช้งาน Library ของ React และอื่นๆ ↓↓↓ //
 ///////////////////////////////////////////////////////////////
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : เรียกใช้งาน src ในโปรเจคของเรา ↓↓↓ //
 ///////////////////////////////////////////////////////////////
-import Home from "./pages/Home";
-import Owner from "./pages/Owner";
-//import { MemberProvider } from "./context/MemberContext";
+import Navbar from "./Navbar";
 
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : Variable + Method + FN //
 ///////////////////////////////////////////////////////////////
-function App() {
-    return (
-        //<MemberProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/owner" element={<Owner />} />
-            </Routes>
-          </BrowserRouter>
-     //   </MemberProvider>
-      );
-    }
-
+const MainLayout = ({ children }) => {
+  return (
+    <div className="layout-container">
+      <Navbar />
+      <main className="content">{children}</main>
+    </div>
+  );
+};
 
 ////////////////////////////////////////////////////////////////
-//  ↓↓↓ Start : Export App //
+//  ↓↓↓ Start : Export MainLayout //
 ///////////////////////////////////////////////////////////////
-export default App;
+export default MainLayout;

@@ -1,36 +1,31 @@
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : เรียกใช้งาน Library ของ React และอื่นๆ ↓↓↓ //
 ///////////////////////////////////////////////////////////////
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-
-
+//
+//
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : เรียกใช้งาน src ในโปรเจคของเรา ↓↓↓ //
 ///////////////////////////////////////////////////////////////
-import Home from "./pages/Home";
-import Owner from "./pages/Owner";
-//import { MemberProvider } from "./context/MemberContext";
+import MainLayout from "../components/MainLayout";
 
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : Variable + Method + FN //
 ///////////////////////////////////////////////////////////////
-function App() {
-    return (
-        //<MemberProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/owner" element={<Owner />} />
-            </Routes>
-          </BrowserRouter>
-     //   </MemberProvider>
-      );
-    }
-
+const Owner = () => {
+  return (
+    <MainLayout>
+      <div className="owner-content">
+        <h1>- JSD12 : 16_Montri (Tri/ตรี) -</h1>
+        <img src="https://via.placeholder.com/150" alt="Profile" className="profile-img" />
+        <h3>Short Bio</h3>
+        <p>I'm a Full Stack Developer student at Generation Thailand with 5 years of IT Support background.</p>
+      </div>
+    </MainLayout>
+  );
+};
 
 ////////////////////////////////////////////////////////////////
-//  ↓↓↓ Start : Export App //
+//  ↓↓↓ Start : Export Owner //
 ///////////////////////////////////////////////////////////////
-export default App;
+export default Owner;

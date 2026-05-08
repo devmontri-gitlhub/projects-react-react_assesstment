@@ -1,36 +1,33 @@
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : เรียกใช้งาน Library ของ React และอื่นๆ ↓↓↓ //
 ///////////////////////////////////////////////////////////////
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+//import { useState } from "react";
 
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : เรียกใช้งาน src ในโปรเจคของเรา ↓↓↓ //
 ///////////////////////////////////////////////////////////////
-import Home from "./pages/Home";
-import Owner from "./pages/Owner";
-//import { MemberProvider } from "./context/MemberContext";
+import MainLayout from "../components/MainLayout";
+// import UserSection from "../components/UserSection";
+// import AdminSection from "../components/AdminSection";
 
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : Variable + Method + FN //
 ///////////////////////////////////////////////////////////////
-function App() {
+
+const Home = () => {
     return (
-        //<MemberProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/owner" element={<Owner />} />
-            </Routes>
-          </BrowserRouter>
-     //   </MemberProvider>
-      );
-    }
+    <MainLayout>
+      <div className="home-content">
+        <h1 className="main-title"> Hello Hompage</h1>
+      </div>
+    </MainLayout>
+  );
+};
 
 
 ////////////////////////////////////////////////////////////////
-//  ↓↓↓ Start : Export App //
+//  ↓↓↓ Start : Export Home //
 ///////////////////////////////////////////////////////////////
-export default App;
+export default Home;
