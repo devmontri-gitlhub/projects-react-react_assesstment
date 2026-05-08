@@ -41,9 +41,11 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:block">
-        <button className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-transform active:scale-95">
+        <Link
+        to="/contact"
+        className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-transform active:scale-95">
           Contact Me
-        </button>
+        </Link>
       </div>
     </nav>
   );

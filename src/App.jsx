@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 ///////////////////////////////////////////////////////////////
 import Home from "./pages/Home";
 import Owner from "./pages/Owner";
+import Contact from "./pages/Contact";
 import { MemberProvider } from "./context/MemberContext";
 
 
@@ -23,6 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/owner" element={<Owner />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </BrowserRouter>
      </MemberProvider>
