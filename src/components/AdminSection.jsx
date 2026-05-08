@@ -55,50 +55,66 @@ const handleEdit = (member) => {
 //  ↓↓↓ Start : .jsx Display //
 ///////////////////////////////////////////////////////////////
     return (
-    <div className="admin-section">
-      <div className="create-user-form">
-        <h3>{editId ? "Update User" : "Create User Here"}</h3>
-        <div className="input-group">
+    <div className="w-full max-w-4xl mx-auto p-6 space-y-8">
+      <div className="bg-white p-6 rounded-lg border border-gray-300 shadow-sm">
+        <h3 className="text-xl font-bold text-slate-800 mb-4">{editId ? "Update User" : "Create User Here"}</h3>
+        <div className="flex flex-wrap gap-4">
           <input 
+            className="flex-1 min-w-[200px] px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Name" 
             value={formData.name} 
             onChange={(e) => setFormData({...formData, name: e.target.value})} 
           />
           <input 
+            className="flex-1 min-w-[200px] px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Last Name" 
             value={formData.lastname} 
             onChange={(e) => setFormData({...formData, lastname: e.target.value})} 
           />
           <input 
+            className="flex-1 min-w-[200px] px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Position" 
             value={formData.position} 
             onChange={(e) => setFormData({...formData, position: e.target.value})} 
           />
-          <button className="save-btn" onClick={handleSubmit}>
+          <button 
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-md transition-colors shadow-sm active:scale-95"
+            onClick={handleSubmit}
+          >
             {editId ? "Update" : "Save"}
           </button>
         </div>
       </div>
 
-      <div className="table-container">
-        <table>
+      <div className="w-full overflow-hidden rounded-lg border border-gray-300 shadow-sm">
+        <table className="w-full text-left bg-white border-collapse">
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Last Name</th>
-              <th>Position</th>
-              <th>Action</th>
+            <tr className="bg-gray-50 border-b border-gray-300">
+              <th className="py-3 px-6 text-center font-bold text-slate-800 border-r border-gray-300">Name</th>
+              <th className="py-3 px-6 text-center font-bold text-slate-800 border-r border-gray-300">Last Name</th>
+              <th className="py-3 px-6 text-center font-bold text-slate-800 border-r border-gray-300">Position</th>
+              <th className="py-3 px-6 text-center font-bold text-slate-800">Action</th>
             </tr>
           </thead>
           <tbody>
             {members.map((member) => (
-              <tr key={member.id}>
-                <td>{member.name}</td>
-                <td>{member.lastname}</td>
-                <td>{member.position}</td>
-                <td>
-                  <button className="edit-btn" onClick={() => handleEdit(member)}>Edit</button>
-                  <button className="delete-btn" onClick={() => deleteMember(member.id)}>Delete</button>
+              <tr key={member.id} className="border-b border-gray-200 hover:bg-blue-50 transition-colors">
+                <td className="py-3 px-6 text-center border-r border-gray-200 text-slate-700">{member.name}</td>
+                <td className="py-3 px-6 text-center border-r border-gray-200 text-slate-700">{member.lastname}</td>
+                <td className="py-3 px-6 text-center border-r border-gray-200 text-slate-700">{member.position}</td>
+                <td className="py-3 px-6 text-center space-x-2">
+                  <button 
+                    className="text-blue-600 hover:text-blue-800 font-semibold transition-colors" 
+                    onClick={() => handleEdit(member)}
+                  >
+                    Edit
+                  </button>
+                  <button 
+                    className="text-red-500 hover:text-red-700 font-semibold transition-colors" 
+                    onClick={() => deleteMember(member.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
