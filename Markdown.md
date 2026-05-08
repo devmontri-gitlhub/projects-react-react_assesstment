@@ -30,10 +30,12 @@
 
 [3. จะเข้าสู่ขั้นตอนการดึงข้อมูลมาแสดงที่ Component : UserSection.jsx และจัดการส่วนของข้อมูลในไฟล์นี้]
 
+            (UserSection) 
               [3.1. เขียนโค๊ด MemberContext.jsx : ดึง :  Fetch : และใช้การรอข้อมุลด้วย Await]
 
               [3.2. เขียนโค๊ด MemberContext.jsx : ส่ง : Context : ในการส่งข้อมูลไปยังสถานีต่างๆ ที่ไม่เรียงต่อกัน ส่วนไหนที่เรียงข้อมูลต่อกันได้จะใช้เป็น Routerแทน ]
 
+            (AdminSection.jsx) 
               [3.3. เขียนโค๊ด MemberContext.jsx : ดึงข้อมูลกลับมาใช้งาน : useEffect : จะเป็นการดึงข้อมูลกลับมาใช้งาน เช่น สร้างใหม่, แก้ไข, ลบ ]
 
               [3.4. เขียนโค๊ด MemberContext.jsx : สร้างใหม่ : POST : เขียนโค๊ดตามโครงสร้างของการ Create เพื่อนำข้อมูลไปจัดเก็บ สวนนี้จะมีการแปลงเป็น JSON แล้วส่งไปยังสถานที่ที่กำหนดเอาไว้]
@@ -99,5 +101,12 @@
           3.1 แสดงข้อมูลใน UserSection.jsx :   MemberContext.jsx>UserSection.jsx>Home.jsx>App.jsx>index.html
 
 ------------------------------------------------------------------------------------
-  <<<<<<<V.4 added a system to display a list of users when clicking the "User Home Section" button. This is now working correctly. >>>>>>>>>>>
+  <<<<<<<V.4 added a system to display a list of users when clicking the " User Home Section" button. This is now working correctly. >>>>>>>>>>>
 ------------------------------------------------------------------------------------      
+
+        3.2 แสดงข้อมูลใน AdminSection.jsx :   MemberContext.jsx>AdminSection.jsx>Home.jsx>App.jsx>index.html
+        การรับส่งค่าด้วย FN : createMember 
+
+------------------------------------------------------------------------------------
+  <<<<<<<V.5 added a system for creating users. Clicking the Save button in the Admin component now displays correctly. >>>>>>>>>>>
+------------------------------------------------------------------------------------            

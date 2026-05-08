@@ -26,6 +26,9 @@ export const MemberContext = createContext();
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : Variable + Method + FN ↓↓↓ //
 ///////////////////////////////////////////////////////////////
+
+{/* ////////////////////////////////////////////////////////////////////////////////////////// */}
+{/* Start : Fetch : การดึงข้อมูลจากเว็บนอก และนำมาใช้งาน ส่งไปแสดงที่ UserSection.jsx */}
 export const MemberProvider = ({ children }) => {
   const [members, setMembers] = useState([]);
   const API_URL = "https://67eca027aa794fb3222e43e2.mockapi.io/members";
@@ -40,16 +43,30 @@ export const MemberProvider = ({ children }) => {
     }
   };
 
+{/* ////////////////////////////////////////////////////////////////////////////////////////// */}
+{/* Start : useEffect : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
 useEffect(() => {
     fetchMembers();
   }, []);
+
+  {/* ////////////////////////////////////////////////////////////////////////////////////////// */}
+{/* Start : Post : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
+{/* ↓↓↓   รับ ด้วย Fn : creageMember*/ }
+  const createMember = async (newMember) => {
+    await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newMember),
+    });
+    fetchMembers();
+  };
 
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : .jsx แสดงข้อมูล ↓↓↓ //
 ///////////////////////////////////////////////////////////////
   return (
-    <MemberContext.Provider value={{ members, fetchMembers}}>
+    <MemberContext.Provider value={{ members, fetchMembers, createMember}}>
       {children}
     </MemberContext.Provider>
   );
