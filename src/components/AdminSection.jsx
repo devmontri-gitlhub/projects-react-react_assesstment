@@ -25,7 +25,7 @@ const AdminSection = () => {
 //  ↓↓↓ Start : Variable + Method //
 ///////////////////////////////////////////////////////////////
 {/* ↓↓↓  Start : Post : รับ และส่ง useContext ด้วย Fn : creageMember*/ }
-const { members, createMember } = useContext(MemberContext);
+const { members, createMember, updateMember } = useContext(MemberContext);
 
 const [formData, setFormData] = useState({ name: "", lastname: "", position: "" });
 const [editId, setEditId] = useState(null);
@@ -38,7 +38,7 @@ const handleSubmit = () => {
     if (!formData.name || !formData.lastname) return alert("Please fill all fields");
 
 if (editId) {
-      //updateMember(editId, formData);
+      updateMember(editId, formData);
       setEditId(null);
     } else {
       createMember(formData);
@@ -46,7 +46,10 @@ if (editId) {
     setFormData({ name: "", lastname: "", position: "" });
   };   
   
-
+const handleEdit = (member) => {
+    setEditId(member.id);
+    setFormData({ name: member.name, lastname: member.lastname, position: member.position });
+  };
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : .jsx Display //
@@ -94,7 +97,7 @@ if (editId) {
                 <td>{member.lastname}</td>
                 <td>{member.position}</td>
                 <td>
-                  <button className="edit-btn" onClick="">Edit</button>
+                  <button className="edit-btn" onClick={() => handleEdit(member)}>Edit</button>
                   <button className="delete-btn" onClick="">Delete</button>
                 </td>
               </tr>

@@ -104,9 +104,22 @@
   <<<<<<<V.4 added a system to display a list of users when clicking the " User Home Section" button. This is now working correctly. >>>>>>>>>>>
 ------------------------------------------------------------------------------------      
 
-        3.2 แสดงข้อมูลใน AdminSection.jsx :   MemberContext.jsx>AdminSection.jsx>Home.jsx>App.jsx>index.html
-        การรับส่งค่าด้วย FN : createMember 
+[3.3. เขียนโค๊ด MemberContext.jsx : ดึงข้อมูลกลับมาใช้งาน : useEffect : จะเป็นการดึงข้อมูลกลับมาใช้งาน เช่น สร้างใหม่, แก้ไข, ลบ ]
+
+[3.4. เขียนโค๊ด MemberContext.jsx : สร้างใหม่ : POST : เขียนโค๊ดตามโครงสร้างของการ Create เพื่อนำข้อมูลไปจัดเก็บ สวนนี้จะมีการแปลงเป็น JSON แล้วส่งไปยังสถานที่ที่กำหนดเอาไว้]
+        
+         AdminSection.jsx :   MemberContext.jsx>AdminSection.jsx>Home.jsx>App.jsx>index.html
+         การรับส่งค่าด้วย FN : createMember  > ไปเก็บในโครงสร้างเพื่อส่ง ด้วย POST
 
 ------------------------------------------------------------------------------------
   <<<<<<<V.5 added a system for creating users. Clicking the Save button in the Admin component now displays correctly. >>>>>>>>>>>
-------------------------------------------------------------------------------------            
+------------------------------------------------------------------------------------    
+ 
+     [3.5. เขียนโค๊ด MemberContext.jsx : แก้ไข : PUT : เขียนโค๊ดตามโครงสร้างของการ Edit เพื่อนำข้อมูลไปจัดเก็บ สวนนี้จะมีการแปลงเป็น JSON แล้วส่งไปยังสถานที่ที่กำหนดเอาไว้]
+
+         AdminSection.jsx :   MemberContext.jsx>AdminSection.jsx>Home.jsx>App.jsx>index.html
+         การรับส่งค่าด้วย FN : updateMember > ไปเก็บในโครงสร้างเพื่อส่ง ด้วย PUT
+
+------------------------------------------------------------------------------------
+  <<<<<<<V.6 added a user editing system. Clicking the Edit button in the Admin component now displays correctly. >>>>>>>>>>>
+------------------------------------------------------------------------------------    

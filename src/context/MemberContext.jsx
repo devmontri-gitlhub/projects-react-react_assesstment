@@ -50,8 +50,8 @@ useEffect(() => {
   }, []);
 
   {/* ////////////////////////////////////////////////////////////////////////////////////////// */}
-{/* Start : Post : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
-{/* ↓↓↓   รับ ด้วย Fn : creageMember*/ }
+{/* Start : POST : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
+{/* ↓↓↓   รับ ด้วย Fn : creageMember โดยมีค่าตัวแปล Members ติดมาด้วย จากนั้นส่งคำสั่งเป็น POST ไปยัง URL และ แปลงโค๊ด JASON ส่งไปด้วย*/ }
   const createMember = async (newMember) => {
     await fetch(API_URL, {
       method: "POST",
@@ -61,12 +61,23 @@ useEffect(() => {
     fetchMembers();
   };
 
+{/* Start : PUT : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
+{/* ↓↓↓   รับ ด้วย Fn : updateMember โดยมีค่าตัวแปร editId, formData ติดมาด้วย ส่งคำสั่งเป็น POST ไปยัง URL และ แปลงโค๊ด JASON ส่งไปด้วย*/ }
+
+ const updateMember = async (id, updatedData) => {
+    await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedData),
+    });
+    fetchMembers();
+  }; 
 
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : .jsx แสดงข้อมูล ↓↓↓ //
 ///////////////////////////////////////////////////////////////
   return (
-    <MemberContext.Provider value={{ members, fetchMembers, createMember}}>
+    <MemberContext.Provider value={{ members, fetchMembers, createMember, updateMember}}>
       {children}
     </MemberContext.Provider>
   );
