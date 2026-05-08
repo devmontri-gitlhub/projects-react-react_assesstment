@@ -123,3 +123,10 @@
 ------------------------------------------------------------------------------------
   <<<<<<<V.6 added a user editing system. Clicking the Edit button in the Admin component now displays correctly. >>>>>>>>>>>
 ------------------------------------------------------------------------------------    
+ [3.6. เขียนโค๊ด MemberContext.jsx : ลบ : DELETE : เขียนโค๊ดตามโครงสร้างของการ Delete เพื่อส่งข้อมูลไปแจ้งลบ สวนนี้จะมีการแปลงเป็น JSON แล้วส่งไปยังสถานที่ที่กำหนดเอาไว้]
+
+        AdminSection.jsx :   MemberContext.jsx>AdminSection.jsx>Home.jsx>App.jsx>index.html
+        การรับส่งค่าด้วย FN : updateMember > ไปเก็บในโครงสร้างเพื่อส่ง ด้วย PUT
+------------------------------------------------------------------------------------
+  <<<<<<<V.7 added a user delete system. Clicking the Delete button in the Admin component now displays correctly. >>>>>>>>>>>
+------------------------------------------------------------------------------------ 

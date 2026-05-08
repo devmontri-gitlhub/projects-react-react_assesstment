@@ -52,7 +52,8 @@ useEffect(() => {
   {/* ////////////////////////////////////////////////////////////////////////////////////////// */}
 {/* Start : POST : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
 {/* ↓↓↓   รับ ด้วย Fn : creageMember โดยมีค่าตัวแปล Members ติดมาด้วย จากนั้นส่งคำสั่งเป็น POST ไปยัง URL และ แปลงโค๊ด JASON ส่งไปด้วย*/ }
-  const createMember = async (newMember) => {
+{/*  เรียก Fn : fetchMembers เพื่อเรียกข้อมูลล่าสุดจาก API  */ }  
+ const createMember = async (newMember) => {
     await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -63,7 +64,7 @@ useEffect(() => {
 
 {/* Start : PUT : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
 {/* ↓↓↓   รับ ด้วย Fn : updateMember โดยมีค่าตัวแปร editId, formData ติดมาด้วย ส่งคำสั่งเป็น POST ไปยัง URL และ แปลงโค๊ด JASON ส่งไปด้วย*/ }
-
+{/*  เรียก Fn : fetchMembers เพื่อเรียกข้อมูลล่าสุดจาก API  */ }
  const updateMember = async (id, updatedData) => {
     await fetch(`${API_URL}/${id}`, {
       method: "PUT",
@@ -73,11 +74,20 @@ useEffect(() => {
     fetchMembers();
   }; 
 
+{/* Start : DELETE : เมื่อเปิดปุ้บ เรียกใช้ Fn: fetchMember ดึงข้อมูลล่าสุดมาใช้งานทันที */}
+{/* ↓↓↓   รับ ด้วย Fn : deleteMember โดยมีค่าตัวแปร member.id ติดมาด้วย  */ }
+{/*  ทำการค้นหาข้อมูลด้วย ID ก่อน จากนั้นจึงส่งคำสั่งเป็น DELETE ไปลบ */ }
+{/*  เรียก Fn : fetchMembers เพื่อเรียกข้อมูลล่าสุดจาก API  */ }
+const deleteMember = async (id) => {
+    await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+    fetchMembers();
+  };
+
 ////////////////////////////////////////////////////////////////
 //  ↓↓↓ Start : .jsx แสดงข้อมูล ↓↓↓ //
 ///////////////////////////////////////////////////////////////
   return (
-    <MemberContext.Provider value={{ members, fetchMembers, createMember, updateMember}}>
+    <MemberContext.Provider value={{ members, fetchMembers, createMember, updateMember, deleteMember}}>
       {children}
     </MemberContext.Provider>
   );

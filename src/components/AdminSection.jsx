@@ -25,7 +25,7 @@ const AdminSection = () => {
 //  ↓↓↓ Start : Variable + Method //
 ///////////////////////////////////////////////////////////////
 {/* ↓↓↓  Start : Post : รับ และส่ง useContext ด้วย Fn : creageMember*/ }
-const { members, createMember, updateMember } = useContext(MemberContext);
+const { members, createMember, updateMember, deleteMember } = useContext(MemberContext);
 
 const [formData, setFormData] = useState({ name: "", lastname: "", position: "" });
 const [editId, setEditId] = useState(null);
@@ -98,7 +98,7 @@ const handleEdit = (member) => {
                 <td>{member.position}</td>
                 <td>
                   <button className="edit-btn" onClick={() => handleEdit(member)}>Edit</button>
-                  <button className="delete-btn" onClick="">Delete</button>
+                  <button className="delete-btn" onClick={() => deleteMember(member.id)}>Delete</button>
                 </td>
               </tr>
             ))}
